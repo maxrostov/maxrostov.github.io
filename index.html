@@ -1,89 +1,76 @@
-<!DOCTYPE html>
-<html lang="ru" color-mode="user">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Instant Translate SidePanel</title>
-    <link rel="stylesheet" href="css/pico.css" />
-  </head>
-  <body class="container">
-    <header>
-      <hgroup>
-        <p>Расширение для браузера Chrome (Edge)</p>
-        <h1>Instant Translate SidePanel</h1>
-        <h3>Мгновенный перевод текста</h3>
-      </hgroup>
-    </header>
+<!DOCTYPE html><html lang="ru" color-mode="user"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instant Translate SidePanel</title>
+  <link rel="stylesheet" href="css/pico.css">
+</head>
 
-    <main class="container">
-      <h3>Возможности</h3>
-      <ul>
-        <li>Сразу переводит выделенный текст</li>
+<body class="container">
+  <header>
+    <hgroup>
+      <p>Расширение для браузера Chrome (Edge)</p>
+      <h1>Instant Translate SidePanel</h1>
+      <h3>Мгновенный перевод текста</h3>
+    </hgroup>
+  </header>
+
+  <main class="container">
+    <h3>Возможности!!</h3>
+    <ul>
+      <li>Мгновенно переводит выделенный текст</li>
+      <li>
+        Не портит в дизайн страницы, никаких popup-окон, все в отдельной
+        боковой панели
+      </li>
+      <li>
+        При выделении одного слова -- статья из Яндекс.Словаря с произношением
+      </li>
+      <li>Темная тема</li>
+      <li>Перевод и в pdf файлах (из контекстного меню)</li>
+      <!-- <li>Копирование перевода в markdown</li> -->
+    </ul>
+
+    <div class="container">
+      <h3>Установка</h3>
+      <p>
+        Пока что установка только в режиме разработчика, в дальнейшем плагин
+        будет размещен в интернет-магазине Chrome.
+      </p>
+      <ol>
+        <li>Распаковать zip-архив</li>
         <li>
-          Не внедряется в дизайн страницы, никаких popup-окон, все в отдельной
-          боковой панели
+          В "Настройках расширений" (<code>chrome://extensions</code> в новом
+          окне) включить режим разработчика
         </li>
         <li>
-          При выделении одного слова -- статья из Яндекс.Словаря с произношением
+          Кнопкой "Загрузить распакованное / Load unpacked" выбрать папку
         </li>
-        <li>Темная тема</li>
-        <!-- <li>Копирование перевода в markdown</li> -->
-      </ul>
+        <li>
+          После установки расширения "старые" (уже открытые) вкладки надо
+          перезагрузить (если на них нужен плагин)
+        </li>
+      </ol>
+    </div>
 
-      <div class="container">
-        <h3>Установка</h3>
-        <p>
-          Пока что установка только в режиме разработчика, в дальнейшем плагин
-          будет размещен в интернет-магазине Chrome.
-        </p>
-        <ol>
-          <li>Распаковать zip-архив</li>
-          <li>
-            В "Настройках расширений" (<code>chrome://extensions</code> в новом
-            окне) включить режим разработчика
-          </li>
-          <li>
-            Кнопкой "Загрузить распакованное / Load unpacked" выбрать папку
-          </li>
-          <li>
-            После установки расширения "старые" (уже открытые) вкладки надо
-            перезагрузить (если на них нужен плагин)
-          </li>
-        </ol>
-      </div>
+    <div id="zip"><ul>
+               <li><a href="zip/translation-chrome-extension-2025.09.13.23-chrome.zip">
+                     translation-chrome-extension-2025.09.13.23-chrome
+                </a>&nbsp;
+                <small class="file-size">(0.20 MB)</small></li>
+        
 
-      <div id="zip">
-        <ul>
-          <li>
-            <a href="zip/translation-chrome-extension-2025.07.23.01-chrome.zip">
-              translation-chrome-extension-2025.07.23.01-chrome
-            </a>
-            &nbsp;
-            <small class="file-size">(0.20 MB)</small>
-          </li>
-          <li>
-            <a href="zip/translation-chrome-extension-2025.09.13.23-chrome.zip">
-              translation-chrome-extension-2025.09.13.23-chrome
-            </a>
-            &nbsp;
-            <small class="file-size">(0.20 MB)</small>
-          </li>
-          <li>
-            <a href="zip/translation-chrome-extension-2025.10.20.22-chrome.zip">
-              translation-chrome-extension-2025.10.20.22-chrome
-            </a>
-            &nbsp;
-            <small class="file-size">(0.20 MB)</small>
-          </li>
-          <li>
-            <a href="zip/translation-chrome-extension-2025.12.16.20-chrome.zip">
-              translation-chrome-extension-2025.12.16.20-chrome
-            </a>
-            &nbsp;
-            <small class="file-size">(0.20 MB)</small>
-          </li>
-        </ul>
-      </div>
-    </main>
-  </body>
-</html>
+               <li><a href="zip/translation-chrome-extension-2025.10.20.22-chrome.zip">
+                     translation-chrome-extension-2025.10.20.22-chrome
+                </a>&nbsp;
+                <small class="file-size">(0.20 MB)</small></li>
+        
+
+               <li><a href="zip/translation-chrome-extension-2025.12.16.20-chrome.zip">
+                     translation-chrome-extension-2025.12.16.20-chrome
+                </a>&nbsp;
+                <small class="file-size">(0.20 MB)</small></li>
+        </ul></div>
+  </main>
+
+
+</body></html>
