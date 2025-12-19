@@ -3,6 +3,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instant Translate SidePanel</title>
   <link rel="stylesheet" href="css/pico.css">
+  <style>
+    video {
+      width: 100%;
+      max-width: 800px;
+    }
+  </style>
 </head>
 
 <body class="container">
@@ -14,8 +20,13 @@
     </hgroup>
   </header>
 
-  <main class="container">
-    <h3>Возможности!!</h3>
+  <!-- https://developer.mozilla.org/ru/docs/Web/HTML/Reference/Elements/video -->
+  <!-- https://doka.guide/html/video/ -->
+  <video src="mp4/features.mp4" poster="mp4/poster.png" controls="" autoplay="" loop=""></video>
+
+
+  <main>
+    <h3>Возможности</h3>
     <ul>
       <li>Мгновенно переводит выделенный текст</li>
       <li>
@@ -30,47 +41,73 @@
       <!-- <li>Копирование перевода в markdown</li> -->
     </ul>
 
-    <div class="container">
-      <h3>Установка</h3>
-      <p>
-        Пока что установка только в режиме разработчика, в дальнейшем плагин
-        будет размещен в интернет-магазине Chrome.
-      </p>
-      <ol>
-        <li>Распаковать zip-архив</li>
-        <li>
-          В "Настройках расширений" (<code>chrome://extensions</code> в новом
-          окне) включить режим разработчика
-        </li>
-        <li>
-          Кнопкой "Загрузить распакованное / Load unpacked" выбрать папку
-        </li>
-        <li>
-          После установки расширения "старые" (уже открытые) вкладки надо
-          перезагрузить (если на них нужен плагин)
-        </li>
-      </ol>
-    </div>
+
+    <h3>Установка</h3>
+    <p>
+      Пока что установка только в режиме разработчика, в дальнейшем плагин
+      будет размещен в интернет-магазине Chrome.
+    </p>
 
     <div id="zip"><ul>
-               <li><a href="zip/translation-chrome-extension-2025.09.13.23-chrome.zip">
-                     translation-chrome-extension-2025.09.13.23-chrome
+               <li><a href="zip/translation-chrome-extension-2025.12.19.23-chrome.zip">
+                     translation-chrome-extension-2025.12.19.23-chrome
                 </a>&nbsp;
-                <small class="file-size">(0.20 MB)</small></li>
-        
-
-               <li><a href="zip/translation-chrome-extension-2025.12.16.20-chrome.zip">
-                     translation-chrome-extension-2025.12.16.20-chrome
-                </a>&nbsp;
-                <small class="file-size">(0.20 MB)</small></li>
-        
-
-               <li><a href="zip/translation-chrome-extension-2025.12.16.21-chrome.zip">
-                     translation-chrome-extension-2025.12.16.21-chrome
-                </a>&nbsp;
-                <small class="file-size">(0.20 MB)</small></li>
+                <small class="file-size">(0.21 MB)</small></li>
         </ul></div>
+
+    <ol>
+      <li>Скачать и распаковать zip-архив</li>
+      <li>
+        В "Настройках расширений" (<code>chrome://extensions</code> в новом
+        окне) включить режим разработчика
+      </li>
+      <li>
+        Кнопкой "Загрузить распакованное / Load unpacked" выбрать папку
+      </li>
+      <li>
+        После установки расширения "старые" (уже открытые) вкладки надо
+        перезагрузить (если на них нужен плагин)
+      </li>
+    </ol>
+
+    <video src="mp4/install.mp4" controls=""></video>
+
+    <br><br>
+
+
   </main>
+  <script>
+    (function () {
+      const toggleBtn = document.createElement('a');
+      toggleBtn.href = '#';
+      toggleBtn.setAttribute('aria-label', 'Toggle theme');
+      // Use standard styling compatible with Pico
+      toggleBtn.style.cssText = "position: absolute; top: 1rem; right: 1rem; font-size: 1rem; text-decoration: none; color: inherit; padding: 0.5rem; line-height: 1; border-radius: 5px;";
+
+      const sunIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>';
+      const moonIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+
+      const getSystemTheme = () => window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      let theme = localStorage.getItem('theme') || getSystemTheme();
+
+      function applyTheme(t) {
+        document.documentElement.setAttribute('data-theme', t);
+        // If dark, show sun (to switch to light). If light, show moon (to switch to dark).
+        toggleBtn.innerHTML = t === 'dark' ? sunIcon : moonIcon;
+      }
+
+      applyTheme(theme);
+
+      toggleBtn.onclick = (e) => {
+        e.preventDefault();
+        theme = theme === 'dark' ? 'light' : 'dark';
+        localStorage.setItem('theme', theme);
+        applyTheme(theme);
+      };
+
+      document.body.prepend(toggleBtn);
+    })();
+  </script>
 
 
 </body></html>
